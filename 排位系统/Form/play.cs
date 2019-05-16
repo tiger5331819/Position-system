@@ -14,33 +14,41 @@ namespace 排位系统
     {
         public play()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
         int number = 1;
         private void Play_Load(object sender, EventArgs e)
         {
             // TODO: 这行代码将数据加载到表“studentDataSet.student”中。您可以根据需要移动或删除它。
             this.studentTableAdapter.Fill(this.studentDataSet.student);
+            comboBox1.Text = comboBox2.Text = "";
             Number.Text = "1";
-            Form1.form.master.addstudents(comboBox1.Items.Count);
+            Form1.form.master.addstudents(comboBox3.Items.Count);
+            int count = Form1.form.master.studentnum;
+            for(int i=0;i<count;i++)
+            {
+                comboBox1.Items.Add(Form1.form.master.students[i].message.name);
+                comboBox2.Items.Add(Form1.form.master.students[i].message.name);
+            }
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            if(comboBox1.Text!=""&&comboBox2.Text!="")
+            if(comboBox1.Text!=""&&comboBox2.Text!=""&& comboBox1.Text!= comboBox2.Text)
             {
                 if(!Form1.form.master.addplay(number, comboBox1.Text, comboBox2.Text))return;
                 number++;
                 Number.Text = number.ToString();
-                //comboBox1.Items.Remove(comboBox1.SelectedItem);
-                //comboBox2.Items.Remove(comboBox2.SelectedItem);
+                comboBox1.Items.Remove(comboBox2.SelectedItem);
+                comboBox2.Items.Remove(comboBox1.SelectedItem);
+                comboBox1.Items.Remove(comboBox1.SelectedItem);
+                comboBox2.Items.Remove(comboBox2.SelectedItem);
                 comboBox1.Text = "";
                 comboBox2.Text = "";
                 MessageBox.Show("成功安排！");
             }else
             {
-                MessageBox.Show("请选择选手");
+                MessageBox.Show("请重新选择选手");
             }
         }
 

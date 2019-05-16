@@ -17,12 +17,16 @@ namespace 排位系统
     }
     public class Master
     {
-        List<ClassStudent> students = new List<ClassStudent>();
+        public List<ClassStudent> students = new List<ClassStudent>();
         public Dictionary<int,Player> playerList = new Dictionary<int, Player>();
         public int rounds=1;
         public int numbers
         {
             get { return playerList.Count; }
+        }
+        public int studentnum
+        {
+            get { return students.Count; }
         }
         public Master()
         {
@@ -64,7 +68,7 @@ namespace 排位系统
         public void nextround()
         {
             rounds++;
-            students.Sort((ClassStudent s1,ClassStudent s2)=>s1.message.records.CompareTo(s2.message.records));
+            students.Sort((ClassStudent s1,ClassStudent s2)=>s2.message.records.CompareTo(s1.message.records));
             int flag = students.Count;
             ClassStudent[] ss=new ClassStudent[flag];
             students.CopyTo(ss);

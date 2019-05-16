@@ -33,7 +33,6 @@
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentDataSet = new 排位系统.studentDataSet();
             this.label1 = new System.Windows.Forms.Label();
-            this.studentTableAdapter = new 排位系统.studentDataSetTableAdapters.studentTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,6 +45,8 @@
             this.studentsex = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.studentid = new System.Windows.Forms.Label();
+            this.studentTableAdapter = new 排位系统.studentDataSetTableAdapters.studentTableAdapter();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataSet)).BeginInit();
             this.SuspendLayout();
@@ -82,10 +83,6 @@
             this.label1.Size = new System.Drawing.Size(133, 29);
             this.label1.TabIndex = 21;
             this.label1.Text = "学生名：";
-            // 
-            // studentTableAdapter
-            // 
-            this.studentTableAdapter.ClearBeforeFill = true;
             // 
             // label2
             // 
@@ -193,11 +190,26 @@
             this.studentid.Size = new System.Drawing.Size(0, 19);
             this.studentid.TabIndex = 35;
             // 
+            // studentTableAdapter
+            // 
+            this.studentTableAdapter.ClearBeforeFill = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(468, 343);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(219, 68);
+            this.button3.TabIndex = 36;
+            this.button3.Text = "批量添加";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            // 
             // studentmessage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(877, 441);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.studentid);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.studentsex);
@@ -228,9 +240,6 @@
 
         protected System.Windows.Forms.ComboBox StudentLists;
         private System.Windows.Forms.Label label1;
-        private studentDataSet studentDataSet;
-        private System.Windows.Forms.BindingSource studentBindingSource;
-        private studentDataSetTableAdapters.studentTableAdapter studentTableAdapter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -243,5 +252,9 @@
         private System.Windows.Forms.TextBox studentsex;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label studentid;
+        private studentDataSet studentDataSet;
+        private System.Windows.Forms.BindingSource studentBindingSource;
+        private studentDataSetTableAdapters.studentTableAdapter studentTableAdapter;
+        private System.Windows.Forms.Button button3;
     }
 }

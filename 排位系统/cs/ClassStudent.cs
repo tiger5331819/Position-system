@@ -45,6 +45,7 @@ namespace 排位系统
             }
             return false;
         }
+
         public void saverecords(int record)
         {
             message.records += record;

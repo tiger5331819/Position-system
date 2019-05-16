@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.studentDataSet = new 排位系统.studentDataSet();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Number = new System.Windows.Forms.Label();
@@ -39,44 +37,29 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.studentDataSet = new 排位系统.studentDataSet();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentTableAdapter = new 排位系统.studentDataSetTableAdapters.studentTableAdapter();
-            this.studentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
             // 
-            this.comboBox1.DataSource = this.studentBindingSource;
-            this.comboBox1.DisplayMember = "姓名";
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(43, 73);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 20);
             this.comboBox1.TabIndex = 0;
-            this.comboBox1.ValueMember = "ID";
-            // 
-            // studentBindingSource
-            // 
-            this.studentBindingSource.DataMember = "student";
-            this.studentBindingSource.DataSource = this.studentDataSet;
-            // 
-            // studentDataSet
-            // 
-            this.studentDataSet.DataSetName = "studentDataSet";
-            this.studentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // comboBox2
             // 
-            this.comboBox2.DataSource = this.studentBindingSource1;
-            this.comboBox2.DisplayMember = "姓名";
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(267, 73);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 20);
             this.comboBox2.TabIndex = 1;
-            this.comboBox2.ValueMember = "ID";
             // 
             // label1
             // 
@@ -139,20 +122,37 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
+            // comboBox3
+            // 
+            this.comboBox3.DataSource = this.studentBindingSource;
+            this.comboBox3.Enabled = false;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(457, 112);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 20);
+            this.comboBox3.TabIndex = 8;
+            this.comboBox3.Visible = false;
+            // 
+            // studentDataSet
+            // 
+            this.studentDataSet.DataSetName = "studentDataSet";
+            this.studentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentBindingSource
+            // 
+            this.studentBindingSource.DataMember = "student";
+            this.studentBindingSource.DataSource = this.studentDataSet;
+            // 
             // studentTableAdapter
             // 
             this.studentTableAdapter.ClearBeforeFill = true;
-            // 
-            // studentBindingSource1
-            // 
-            this.studentBindingSource1.DataMember = "student";
-            this.studentBindingSource1.DataSource = this.studentDataSet;
             // 
             // play
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 214);
+            this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -165,9 +165,8 @@
             this.Text = "开始比赛";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Play_FormClosing);
             this.Load += new System.EventHandler(this.Play_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,9 +182,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox3;
         private studentDataSet studentDataSet;
         private System.Windows.Forms.BindingSource studentBindingSource;
         private studentDataSetTableAdapters.studentTableAdapter studentTableAdapter;
-        private System.Windows.Forms.BindingSource studentBindingSource1;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,8 @@ namespace 排位系统
 
         private void Studentmessage_Load(object sender, EventArgs e)
         {
+            // TODO: 这行代码将数据加载到表“studentDataSet.student”中。您可以根据需要移动或删除它。
+            this.studentTableAdapter.Fill(this.studentDataSet.student);
             // TODO: 这行代码将数据加载到表“studentDataSet.student”中。您可以根据需要移动或删除它。
             this.studentTableAdapter.Fill(this.studentDataSet.student);
             StudentLists.Text = "";
@@ -73,6 +76,31 @@ namespace 排位系统
                 sex.Text = s.sex;
                 record.Text = s.record.ToString();
             }
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            string line = "";
+            using (StreamReader sr = new StreamReader("names.txt", Encoding.GetEncoding("GB2312")))
+            {
+                while ((line = sr.ReadLine()) != null)
+                {
+                    MessageBox.Show(line);
+                    int i = line.IndexOf(" ");
+                    string s = line.Substring(0, i);
+                    line = line.Remove(0, i);
+                    using (testEntities db = new testEntities())
+                    {
+                        student st = new student();
+                        st.name = s;
+                        st.sex = line;
+                        st.record = 0;
+                        db.student.Add(st);
+                        db.SaveChanges();
+                    }
+                }
+            }
+            MessageBox.Show("批量添加成功！");
         }
     }
 }
