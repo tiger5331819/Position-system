@@ -36,6 +36,17 @@ namespace 排位系统
             }
             challenger.Add(message.name, me);
         }
+        public ClassStudent()
+        {
+            message = new Message();
+            challenger = new Dictionary<string, ClassStudent>();
+            me = this;
+            message.ID = -1;
+            message.name = "";
+            message.sex = "";
+            message.records = 0;
+            challenger.Add(message.name, me);
+        }
         public bool addchallenger(string name, ClassStudent student)
         {
             if(!this.challenger.ContainsKey(name))

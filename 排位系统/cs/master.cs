@@ -48,6 +48,17 @@ namespace 排位系统
             if (!player.challenger2.addchallenger(player.challenger1.message.name, player.challenger1)) { MessageBox.Show("2"); return false; }
             return true;
         }
+        public bool addplaynull(int number,string c1)
+        {
+            Player player = new Player();
+            player.challenger1 = students.Find(x => x.message.name == c1);
+            player.challenger2 = new ClassStudent();
+            students.Add(player.challenger2);
+            playerList.Add(number, player);
+            if (!player.challenger1.addchallenger(player.challenger2.message.name, player.challenger2)) { MessageBox.Show("1"); return false; }
+            if (!player.challenger2.addchallenger(player.challenger1.message.name, player.challenger1)) { MessageBox.Show("2"); return false; }
+            return true;
+        }
         public void saveplaylist()
         {
             using (testEntities db = new testEntities())

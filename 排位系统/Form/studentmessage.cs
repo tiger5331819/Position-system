@@ -85,7 +85,6 @@ namespace 排位系统
             {
                 while ((line = sr.ReadLine()) != null)
                 {
-                    MessageBox.Show(line);
                     int i = line.IndexOf(" ");
                     string s = line.Substring(0, i);
                     line = line.Remove(0, i);

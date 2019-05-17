@@ -74,7 +74,11 @@ namespace 排位系统
             challenger1radio.Text = challenger1.Text + "  胜";
             challenger2.Text = player.challenger2.message.name;
             challenger2radio.Text = challenger2.Text + "  胜";
+            challenger1radio.Enabled = true;
+            challenger2radio.Enabled = true;
+            if (challenger2.Text == "") challenger2radio.Enabled = false;
             button5.Enabled = true;
+
         }
 
         private void Button5_Click(object sender, EventArgs e)
@@ -96,6 +100,8 @@ namespace 排位系统
                 MessageBox.Show("结果保存成功！");
                 comboBox1.Items.Remove(comboBox1.SelectedItem);
                 challenger1radio.Checked = false;
+                challenger1radio.Enabled = false;
+                challenger2radio.Enabled = false;
                 button5.Enabled = false;
             }else if(challenger2radio.Checked == true)
             {
@@ -114,6 +120,8 @@ namespace 排位系统
                 MessageBox.Show("结果保存成功！");
                 comboBox1.Items.Remove(comboBox1.SelectedItem);
                 challenger2radio.Checked = false;
+                challenger1radio.Enabled = false;
+                challenger2radio.Enabled = false;
                 button5.Enabled = false;
             }else
             {
@@ -125,12 +133,16 @@ namespace 排位系统
                     rounds.challenger2 = challenger2.Text;
                     rounds.result = "平局";
                     rounds.winner = "无";
+                    player.challenger1.saverecords(1);
+                    player.challenger2.saverecords(1);
                     db.Rounds.Add(rounds);
                     db.SaveChanges();
                 }
                 MessageBox.Show("结果保存成功！");
                 comboBox1.Items.Remove(comboBox1.SelectedItem);
                 challenger1radio.Checked = false;
+                challenger1radio.Enabled = false;
+                challenger2radio.Enabled = false;
                 button5.Enabled = false;
             }
             if (comboBox1.Items.Count == 0)
@@ -162,7 +174,7 @@ namespace 排位系统
         {
             string sql;
             string filename = DateTime.Now.ToString();
-            string ConnectionStr = "Data Source=10.192.11.215;Initial Catalog=test;Persist Security Info=True;User ID=sa;Password=PointCloud";
+            string ConnectionStr = "Data Source=.;Initial Catalog=test;Persist Security Info=True;User ID=sa;Password=sa";
             SqlConnection conn = new SqlConnection(ConnectionStr);
 
             conn.Open();
@@ -210,7 +222,7 @@ namespace 排位系统
             //建立数据库链接
             string sql;
             string filename = DateTime.Now.ToString();
-            string ConnectionStr = "Data Source=10.192.11.215;Initial Catalog=test;Persist Security Info=True;User ID=sa;Password=PointCloud";
+            string ConnectionStr = "Data Source=.;Initial Catalog=test;Persist Security Info=True;User ID=sa;Password=sa";
 
             //创建DataSet表并且将数据存入表中
             DataSet ds = new DataSet();

@@ -46,9 +46,18 @@ namespace 排位系统
                 comboBox1.Text = "";
                 comboBox2.Text = "";
                 MessageBox.Show("成功安排！");
-            }else
+            }else if(comboBox1.Text == comboBox2.Text&&comboBox1.Items.Count==1&&comboBox2.Items.Count==1)
             {
-                MessageBox.Show("请重新选择选手");
+                if (!Form1.form.master.addplaynull(number, comboBox1.Text)) return;
+                number++;
+                Number.Text = number.ToString();
+                comboBox1.Items.Remove(comboBox2.SelectedItem);
+                comboBox2.Items.Remove(comboBox1.SelectedItem);
+                comboBox1.Items.Remove(comboBox1.SelectedItem);
+                comboBox2.Items.Remove(comboBox2.SelectedItem);
+                comboBox1.Text = "";
+                comboBox2.Text = "";
+                MessageBox.Show("成功安排！");
             }
         }
 

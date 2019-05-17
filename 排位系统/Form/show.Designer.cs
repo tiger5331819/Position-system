@@ -403,7 +403,6 @@
         private studentDataSetTableAdapters.studentTableAdapter studentTableAdapter;
         private System.Windows.Forms.BindingSource studentRoundsviewBindingSource;
         private studentDataSetTableAdapters.studentRoundsviewTableAdapter studentRoundsviewTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 姓名DataGridViewTextBoxColumn1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource roundsBindingSource;
