@@ -174,7 +174,7 @@ namespace 排位系统
         {
             string sql;
             string filename = DateTime.Now.ToString();
-            string ConnectionStr = "Data Source=.;Initial Catalog=test;Persist Security Info=True;User ID=sa;Password=sa";
+            string ConnectionStr = "Data Source=10.155.198.210;Initial Catalog=test;Persist Security Info=True;User ID=administrator;Password=Win2008+";
             SqlConnection conn = new SqlConnection(ConnectionStr);
 
             conn.Open();
